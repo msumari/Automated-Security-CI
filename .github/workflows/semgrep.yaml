@@ -8,4 +8,10 @@ jobs:
             image: semgrep/semgrep
         steps:
             - uses: actions/checkout@v4
-            - run: semgrep scan --config=auto
+
+            - name: Run Semgrep with Strict Rules
+              run: |
+                  semgrep scan \
+                    --config="p/default" \
+                    --error \
+                    --verbose
